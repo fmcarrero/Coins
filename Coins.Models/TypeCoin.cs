@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,10 @@ namespace Coins.Models
         private string tag;
         private ICollection<Coin> coins;
 
+      
+        private TypeCoin() { }
+
+        [JsonConstructor]
         public TypeCoin(long  _id, string _name, string _Tag) {
             this.id = _id;
             this.name = _name;
