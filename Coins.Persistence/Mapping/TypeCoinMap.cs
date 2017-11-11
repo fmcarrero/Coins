@@ -8,19 +8,15 @@ using System.Threading.Tasks;
 
 namespace Coins.Persistence.Mapping
 {
-   public class CoinsMap : EntityTypeConfiguration<Coin>
+    public class TypeCoinMap : EntityTypeConfiguration<TypeCoin>
     {
-        public CoinsMap() {
+        public TypeCoinMap() {
             Property(e => e.Name)
                 .HasMaxLength(50)
                 .IsRequired();
-            HasKey(e => e.Id);
-
-            HasRequired(e=> e.TypeCoins)
-                .WithMany(l=> l.Coins)
-                .HasForeignKey(a=> a.TypecoinId)
-                .WillCascadeOnDelete(false)
-                ;
+            Property(e => e.Tag)
+                .HasMaxLength(3)
+                .IsRequired();
         }
     }
 }
